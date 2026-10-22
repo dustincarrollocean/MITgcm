@@ -1,0 +1,15 @@
+# snapshots every 10 steps (negative frequency = snapshot); a file
+# labelled n holds the state after step n+1. Set -90. for every step.
+ &DIAGNOSTICS_LIST
+ fields(1:4,1) = 'ETAN    ','WDdepth ','WDdryC  ','WDmaskW ',
+ fileName(1) = 'wdSnap',
+ frequency(1) = -900.,
+ timePhase(1) = 0.,
+ fields(1:2,2) = 'UVEL    ','VVEL    ',
+ levels(1,2) = 1.,
+ fileName(2) = 'uvSnap',
+ frequency(2) = -900.,
+ timePhase(2) = 0.,
+ &
+ &DIAG_STATIS_PARMS
+ &

@@ -1,0 +1,4 @@
+ &PACKAGES
+ useDiagnostics=.TRUE.,
+ useWETDRY=.TRUE.,
+ &
