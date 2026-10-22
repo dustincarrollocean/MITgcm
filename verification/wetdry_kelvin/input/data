@@ -1,13 +1,15 @@
 # wetdry_kelvin: a coastal Kelvin-wave pulse floods and drains intertidal
-# flats along a coast and in a fjord (see gendata.py). 60 steps of 90 s:
-# coast flats wet and dry mostly in steps 1-18, fjord flats in steps 5-60.
+# flats along a coast and in a fjord, f-plane at 60 N, dx = 24 km (see
+# gendata.py). 60 steps of 2160 s (36 h): coast flats wet and dry in steps
+# 1-38, fjord flats in steps 5-60. Low bottom drag (1e-4) so that the thin
+# water on the 24 km wide flats drains within 60 steps.
  &PARM01
  debugLevel=-1,
  eosType='LINEAR', tAlpha=0., sBeta=7.4E-4, tRef=15*10., sRef=15*35.,
- rhoConst=1000., gravity=9.81, f0=3.E-3, beta=0.,
- viscAh=20., viscAr=1.E-4, diffKhS=1., diffKrS=1.E-5,
+ rhoConst=1000., gravity=9.81, f0=1.2630E-4, beta=0.,
+ viscAh=480., viscAr=1.E-4, diffKhS=24., diffKrS=1.E-5,
  no_slip_sides=.FALSE., no_slip_bottom=.FALSE.,
- bottomDragQuadratic=2.5E-3, selectImplicitDrag=2, implicitViscosity=.TRUE.,
+ bottomDragQuadratic=1.E-4, selectImplicitDrag=2, implicitViscosity=.TRUE.,
  rigidLid=.FALSE., implicitFreeSurface=.TRUE., exactConserv=.TRUE.,
  nonlinFreeSurf=4, select_rStar=2,
  hFacMin=0.01, hFacMinDr=0.01, hFacInf=0.001, hFacSup=2.0,
@@ -20,11 +22,11 @@
  cg2dMaxIters=500, cg2dTargetResidual=1.E-13,
  &
  &PARM03
- nIter0=0, nTimeSteps=60, deltaT=90., abEps=0.1,
- dumpFreq=0., monitorSelect=2, monitorFreq=450.,
+ nIter0=0, nTimeSteps=60, deltaT=2160., abEps=0.1,
+ dumpFreq=0., monitorSelect=2, monitorFreq=10800.,
  &
  &PARM04
- usingCartesianGrid=.TRUE., dXspacing=1000., dYspacing=1000.,
+ usingCartesianGrid=.TRUE., dXspacing=24000., dYspacing=24000.,
  delR=1., 1., 1., 1.5, 1.5, 2., 2., 3., 3., 4., 5., 6., 7., 8., 8.,
  &
  &PARM05
